@@ -46,7 +46,7 @@ class OutputService:
         """
         Outputs the provided text at the desired location.
         """
-        color = raylibpy.WHITE
+        color = raylibpy.BLUE
 
         if is_dark_text:
             color = raylibpy.BLACK

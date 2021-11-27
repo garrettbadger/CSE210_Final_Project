@@ -79,7 +79,7 @@ def main():
     # TODO: Create additional actions here and add them to the script
 
     script["input"] = []
-    script["update"] = []
+    script["update"] = [move_actors_action, control_actors_action]
     script["output"] = [draw_actors_action]
 
 
@@ -98,4 +98,4 @@ if __name__ == "__main__":
     main()
 
 
-# [move_actors_action, handle_off_screen_action, control_actors_action, handle_collisions_action]
+# [, handle_off_screen_action, , handle_collisions_action]
