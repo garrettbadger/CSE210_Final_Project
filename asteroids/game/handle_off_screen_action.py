@@ -10,23 +10,26 @@ class HandleOffScreenAction(Action):
     
 
     def execute(self, cast):
-        ball = cast['balls'][0]
+        asteroid = cast['asteroids']
         for group in cast:
-            if group == 'balls':
-                position = ball.get_position()
-                velocity = ball.get_velocity()
-                # if position.get_x() >= constants.MAX_X:
-                #     ball.set_velocity(Point((velocity.get_x() * -1), velocity.get_y()))
+            if group == 'asteroids':
+                for actor in cast['asteroids']:
+               
+                    if actor.get_top_edge() <= 0 or actor.get_bottom_edge() >= constants.MAX_Y:
+                        asteroid.remove(actor)
+                    elif actor.get_right_edge() >= constants.MAX_X or actor.get_left_edge() <= 0:
+                        asteroid.remove(actor)
+        projectile = cast['projectiles']
+        for group in cast:
+            if group == 'projectiles':
+                for actor in cast['projectiles']:
+               
+                    if actor.get_top_edge() <= 0 or actor.get_bottom_edge() >= constants.MAX_Y:
+                        projectile.remove(actor)
+                    elif actor.get_right_edge() >= constants.MAX_X or actor.get_left_edge() <= 0:
+                        projectile.remove(actor)
                     
-                # elif position.get_y() >= constants.MAX_Y:
-                #     ball.set_velocity(Point(velocity.get_x(), (velocity.get_y() * -1)))
-                if ball.get_top_edge() <= 0 or ball.get_bottom_edge() >= constants.MAX_Y:
-                    ball.set_velocity(Point(velocity.get_x(), (velocity.get_y() * -1)))
-                elif ball.get_right_edge() >= constants.MAX_X or ball.get_left_edge() <= 0:
-                    ball.set_velocity(Point((velocity.get_x() * -1), velocity.get_y()))
-                
-                if ball.get_bottom_edge() >= constants.MAX_Y:
-                    ball.remove(ball)
+              
 
         
     

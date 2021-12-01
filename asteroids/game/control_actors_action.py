@@ -1,5 +1,6 @@
 from game import constants
 from game.action import Action
+from game.projectiles import Projectiles
 
 class ControlActorsAction(Action):
     """A code template for controlling actors. The responsibility of this
@@ -28,4 +29,10 @@ class ControlActorsAction(Action):
         """
         direction = self._input_service.get_direction()
         ship = cast["ship"][0] # there's only one in the cast
-        ship.set_velocity(direction.scale(constants.SHIP_SPEED))        
+        ship.set_velocity(direction.scale(constants.SHIP_SPEED))  
+
+        projectile = self._input_service.get_projectile()
+        if projectile == True:
+            bullet = Projectiles.create_projectile()
+            bullet.set_position(ship.get_position())
+            cast['projectiles'].append(bullet)

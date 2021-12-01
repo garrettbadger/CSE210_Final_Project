@@ -45,6 +45,9 @@ class InputService:
 
         direction = Point(dx, dy)
         return direction
+    def get_projectile(self):
+        if self.is_space_pressed():
+            return True
 
     def is_left_pressed(self):
         return raylibpy.is_key_down(raylibpy.KEY_LEFT)
@@ -57,6 +60,9 @@ class InputService:
 
     def is_down_pressed(self):
         return raylibpy.is_key_down(raylibpy.KEY_DOWN)
+    
+    def is_space_pressed(self):
+        return raylibpy.is_key_down(raylibpy.KEY_SPACE)
 
     def window_should_close(self):
         return raylibpy.window_should_close()

@@ -1,6 +1,7 @@
 from time import sleep
 
 import raylibpy
+from game.asteroid import Asteroid
 from game.handle_off_screen_action import HandleOffScreenAction
 from game import constants
 
@@ -36,8 +37,12 @@ class Director:
             self._cue_action("output")
 
             # TODO: Add some logic like the following to handle game over conditions
-            
-            
+            if len(self._cast['asteroids']) < 5 and len(self._cast['asteroids']) < 10:
+                 asteroid = Asteroid.create_asteroid()
+                 self._cast['asteroids'].append(asteroid)
+
+            if len(self._cast['ship']) == 0:
+                self._keep_playing = False
 
             if raylibpy.window_should_close():
                 self._keep_playing = False
