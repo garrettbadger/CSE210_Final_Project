@@ -25,8 +25,8 @@ SOUND_OVER = os.path.join(os.getcwd(), "./batter/assets/over.wav")
 BALL_X = MAX_X / 2
 BALL_Y = MAX_Y - 125
 
-ASTEROID_DX = 2
-ASTEROID_DY = ASTEROID_DX * -1
+ASTEROID_DX = 0
+ASTEROID_DY = 1
 
 PADDLE_X = MAX_X / 2
 PADDLE_Y = MAX_Y - 35
