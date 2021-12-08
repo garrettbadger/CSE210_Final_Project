@@ -11,9 +11,10 @@ class Asteroid(Actor):
        
         asteroid = Asteroid()
         asteroid.set_height(random.randint(8, constants.ASTEROID_HEIGHT))
-        asteroid.set_width(random.randint(8, constants.ASTEROID_WIDTH))
+        asteroid.set_width(random.randint(16, constants.ASTEROID_WIDTH))
         x = random.randint(0, 800)
         y = random.randint(10, 15)
+        
         
        
         position = Point(x, y)

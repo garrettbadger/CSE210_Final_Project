@@ -11,6 +11,7 @@ class HandleOffScreenAction(Action):
 
     def execute(self, cast):
         asteroid = cast['asteroids']
+        ship = cast['ship'][0]
         for group in cast:
             if group == 'asteroids':
                 for actor in cast['asteroids']:
@@ -19,6 +20,10 @@ class HandleOffScreenAction(Action):
                         asteroid.remove(actor)
                     elif actor.get_right_edge() >= constants.MAX_X or actor.get_left_edge() <= 0:
                         asteroid.remove(actor)
+            
+                    if actor.get_bottom_edge() >= constants.MAX_Y:
+                        asteroid.clear()
+
         projectile = cast['projectiles']
         for group in cast:
             if group == 'projectiles':

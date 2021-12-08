@@ -27,7 +27,7 @@ class HandleCollisionsAction(Action):
         # velocity = ball.get_velocity()
         for asteroid in asteroids:
             if self._physics_service.is_collision(ship, asteroid):
-                ship.remove(ship)
+                asteroids.clear()
                 # AudioService().play_sound(constants.SOUND_BOUNCE)
 
 
@@ -35,9 +35,14 @@ class HandleCollisionsAction(Action):
         for projectile in projectiles:
             for asteroid in asteroids:
                 if self._physics_service.is_collision(projectile, asteroid):
-                    
-                    asteroids.remove(asteroid)
-                    projectiles.remove(projectile)
+                    if asteroid.get_width() > 24 or asteroid.get_height() > 24:
+                        
+                        asteroid.set_width(asteroid.get_width() - 9)
+                        asteroid.set_height(asteroid.get_height() -5)
+                        projectiles.remove(projectile)
+                    if asteroid.get_width() <= 23 or asteroid.get_height() <= 23:                  
+                        asteroids.remove(asteroid)
+                        # projectiles.remove(projectile)
                     # AudioService().play_sound(constants.SOUND_BOUNCE)
 
                  

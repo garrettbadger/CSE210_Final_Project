@@ -20,6 +20,8 @@ from game.handle_off_screen_action import HandleOffScreenAction
 from game.ship import Ship
 from game.control_actors_action import ControlActorsAction
 from game.handle_collisions_action import HandleCollisionsAction
+from game.game_over import GameOver
+from game.game_over_action import GameOverAction
 
 # TODO: Add imports similar to the following when you create these classes
 
@@ -39,7 +41,7 @@ def main():
         asteroids.append(asteroid)
     cast['asteroids'] = asteroids
 
-        
+          
 
     # cast["balls"] = []
     # TODO: Create a ball here and add it to the list
@@ -61,6 +63,16 @@ def main():
 
     cast["ship"] = ships
 
+    # messages = []
+    # message = GameOver()
+    # message.set_height(200)
+    # message.set_width(200)
+    # message.set_text('Game Over! Better Luck Next Time!')
+    # message.set_position(Point(300, 400))
+    # messages.append(message)
+    
+    cast["messages"] = ""
+
 
     # Create the script {key: tag, value: list}
     script = {}
@@ -75,25 +87,28 @@ def main():
     handle_off_screen_action = HandleOffScreenAction()
     control_actors_action = ControlActorsAction(input_service)
     handle_collisions_action = HandleCollisionsAction(physics_service)
+    game_over_action = GameOverAction(output_service)
     # TODO: Create additional actions here and add them to the script
 
     script["input"] = []
     script["update"] = [move_actors_action, control_actors_action, handle_off_screen_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
+    script["gameover"] = [game_over_action]
 
 
-
+  
     # Start the game
-    output_service.open_window("Asteroids");
-    # audio_service.start_audio()
+    output_service.open_window("Asteroids")  
+    audio_service.start_audio()
     # audio_service.play_sound(constants.SOUND_START)
     
     director = Director(cast, script)
     director.start_game()
-
+ 
     audio_service.stop_audio()
 
 if __name__ == "__main__":
     main()
 
 
+ 
