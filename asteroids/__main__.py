@@ -57,7 +57,7 @@ def main():
     ship.set_height(constants.SHIP_HEIGHT)
     ship.set_width(constants.SHIP_WIDTH)
     ship.set_position(Point(constants.MAX_X/2, constants.MAX_Y/2))
-    ship.set_text('|=|')
+    ship.set_image(r"C:\Users\flipp\CSE210_Final_Project\CSE210_Final_Project\asteroids\assets\pitrizzo-SpaceShip-gpl3-opengameart-24x24.png")
     ships.append(ship)
     
 
