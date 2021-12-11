@@ -35,7 +35,15 @@ class HandleOffScreenAction(Action):
                         projectile.remove(actor)
                     
               
+        if ship.get_right_edge() >= constants.MAX_X:
+            ship.set_position(Point(ship.get_position().get_x()-15, ship.get_position().get_y()))
+        if ship.get_left_edge() <= 20:
+            ship.set_position(Point(ship.get_position().get_x()+15, ship.get_position().get_y()))
+        if ship.get_bottom_edge() >= constants.MAX_Y:
+            ship.set_position(Point(ship.get_position().get_x(), ship.get_position().get_y()-15))
 
+
+            
         
     
                        

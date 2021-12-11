@@ -4,7 +4,7 @@ from game.audio_service import AudioService
 from game import constants
 from game.action import Action
 from game.point import Point
-# from game.game_over_action import create_exit
+
 
 class HandleCollisionsAction(Action):
     """A code template for handling collisions. The responsibility of this class of objects is to update the game state when actors collide.
@@ -15,7 +15,7 @@ class HandleCollisionsAction(Action):
     def __init__(self, physics_service):
         super().__init__()
         self._physics_service = physics_service
-        # self.exit = create_exit()
+        
         
 
     def execute(self, cast):
@@ -24,16 +24,16 @@ class HandleCollisionsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        ship = cast["ship"][0] # there's only one
+        ship = cast["ship"][0] 
         projectiles = cast["projectiles"]
         asteroids = cast["asteroids"]
         score = cast['score'][0]
         
-        # velocity = ball.get_velocity()
+        
         for asteroid in asteroids:
             if self._physics_service.is_collision(ship, asteroid):
                 asteroids.clear()
-                # AudioService().play_sound(constants.SOUND_BOUNCE)
+                AudioService().play_sound(constants.SOUND_HIT)
 
 
         
@@ -64,10 +64,7 @@ class HandleCollisionsAction(Action):
                         score.set_score(1)
                         
                         score.set_text(str(score.get_score()))
-                        # projectiles.remove(projectile)
-                    # AudioService().play_sound(constants.SOUND_BOUNCE)
+                        
+                        AudioService().play_sound(constants.SOUND_HIT)
 
-        # for projectile in projectiles:
-        #     if self._physics_service.is_collision(projectile, self.exit):
-        #         projectiles.remove(projectile)
-        #         self.exit.set_text("")
+        

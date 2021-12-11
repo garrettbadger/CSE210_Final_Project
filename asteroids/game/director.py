@@ -2,6 +2,7 @@ import random
 from time import sleep
 
 import raylibpy
+from game.point import Point
 from game.asteroid import Asteroid
 from game.handle_off_screen_action import HandleOffScreenAction
 from game import constants
@@ -48,32 +49,63 @@ class Director:
                 if score.get_score() < 25:
                     if len(self._cast['asteroids']) < 5:
                         asteroid = Asteroid.create_asteroid()
+                        
                         self._cast['asteroids'].append(asteroid)
                 if score.get_score() > 25 < 50:
                     if len(self._cast['asteroids']) < 7:
                         asteroid = Asteroid.create_asteroid()
+                        
                         self._cast['asteroids'].append(asteroid)
                 if score.get_score() > 50 < 75:
                     if len(self._cast['asteroids']) < 9:
                         asteroid = Asteroid.create_asteroid()
+                        asteroid.set_velocity(Point(constants.ASTEROID_DX, constants.L2ASTEROID_DY))
                         self._cast['asteroids'].append(asteroid)
                 if score.get_score() > 75 < 100:
                     if len(self._cast['asteroids']) < 11:
                         asteroid = Asteroid.create_asteroid()
+                        asteroid.set_velocity(Point(constants.ASTEROID_DX, constants.L2ASTEROID_DY))
                         self._cast['asteroids'].append(asteroid)
                 if score.get_score() > 100 < 125:
                     if len(self._cast['asteroids']) <13:
                         asteroid = Asteroid.create_asteroid()
+                        asteroid.set_velocity(Point(constants.ASTEROID_DX, constants.L3ASTEROID_DY))
                         self._cast['asteroids'].append(asteroid)
 
                 if score.get_score() > 125 < 150:
                     if len(self._cast['asteroids']) < 15:
                         asteroid = Asteroid.create_asteroid()
+                        asteroid.set_velocity(Point(constants.ASTEROID_DX, constants.L3ASTEROID_DY))
                         self._cast['asteroids'].append(asteroid)
 
                 if score.get_score() > 150 < 175:
                     if len(self._cast['asteroids']) < 17:
                         asteroid = Asteroid.create_asteroid()
+                        asteroid.set_velocity(Point(constants.ASTEROID_DX, constants.L4ASTEROID_DY))
+                        self._cast['asteroids'].append(asteroid)
+
+                if score.get_score() > 175 < 200:
+                    if len(self._cast['asteroids']) < 19:
+                        asteroid = Asteroid.create_asteroid()
+                        asteroid.set_velocity(Point(constants.ASTEROID_DX, constants.L4ASTEROID_DY))
+                        self._cast['asteroids'].append(asteroid)
+
+                if score.get_score() > 200 < 225:
+                    if len(self._cast['asteroids']) < 21:
+                        asteroid = Asteroid.create_asteroid()
+                        asteroid.set_velocity(Point(constants.ASTEROID_DX, constants.L5ASTEROID_DY))
+                        self._cast['asteroids'].append(asteroid)
+
+                if score.get_score() > 225 < 250:
+                    if len(self._cast['asteroids']) < 23:
+                        asteroid = Asteroid.create_asteroid()
+                        asteroid.set_velocity(Point(constants.ASTEROID_DX, constants.L5ASTEROID_DY))
+                        self._cast['asteroids'].append(asteroid)
+
+                if score.get_score() > 500:
+                    if len(self._cast['asteroids']) < 29:
+                        asteroid = Asteroid.create_asteroid()
+                        asteroid.set_velocity(Point(constants.ASTEROID_DX, constants.L6ASTEROID_DY))
                         self._cast['asteroids'].append(asteroid)
                     
 

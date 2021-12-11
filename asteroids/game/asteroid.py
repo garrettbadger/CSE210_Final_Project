@@ -16,27 +16,9 @@ class Asteroid(Actor):
         x = random.randint(0, 800)
         y = random.randint(10, 15)
         
-        
-        
-       
         position = Point(x, y)
         asteroid.set_position(position)
-        # if x <= 50:
-            
-        #     if y >= 550:
-        #         velocity = Point(constants.ASTEROID_DX , constants.ASTEROID_DY)
-        #     elif y <= 50:
-        #         velocity = Point(constants.ASTEROID_DX, constants.ASTEROID_DY * -1)
-        # elif x >= 750:
-            
-        #     if y >= 550:
-        #         velocity = Point(constants.ASTEROID_DX * -1, constants.ASTEROID_DY)
-        #     elif y <= 50:
-        #         velocity = Point(constants.ASTEROID_DX * -1, constants.ASTEROID_DY *-1)
-        
-        # # else:
-        # #     velocity = Point(constants.ASTEROID_DX, constants.ASTEROID_DY)
-           
+                   
         velocity = Point(constants.ASTEROID_DX, constants.ASTEROID_DY)
 
         asteroid.set_velocity(velocity)

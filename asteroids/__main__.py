@@ -93,7 +93,7 @@ def main():
     handle_off_screen_action = HandleOffScreenAction()
     control_actors_action = ControlActorsAction(input_service)
     handle_collisions_action = HandleCollisionsAction(physics_service)
-    game_over_action = GameOverAction(output_service, physics_service, script)
+    game_over_action = GameOverAction(output_service, audio_service)
     # TODO: Create additional actions here and add them to the script
 
     script["input"] = []
@@ -106,7 +106,7 @@ def main():
     # Start the game
     output_service.open_window("Asteroids")  
     audio_service.start_audio()
-    # audio_service.play_sound(constants.SOUND_START)
+    audio_service.play_sound(constants.SOUND_START)
     
     director = Director(cast, script)
     director.start_game()
@@ -114,7 +114,7 @@ def main():
     audio_service.stop_audio()
 
 if __name__ == "__main__":
-    main()
+     main()
 
 
  
