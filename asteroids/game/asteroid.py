@@ -10,10 +10,12 @@ class Asteroid(Actor):
     def create_asteroid():
        
         asteroid = Asteroid()
-        asteroid.set_height(random.randint(8, constants.ASTEROID_HEIGHT))
-        asteroid.set_width(random.randint(16, constants.ASTEROID_WIDTH))
+        asteroid.set_height(constants.ASTEROID_HEIGHT)
+        asteroid.set_width(constants.ASTEROID_WIDTH)
+        asteroid.set_image(r'asteroids\assets\asteroid(80x80).png')
         x = random.randint(0, 800)
         y = random.randint(10, 15)
+        
         
         
        

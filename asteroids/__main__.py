@@ -22,6 +22,7 @@ from game.control_actors_action import ControlActorsAction
 from game.handle_collisions_action import HandleCollisionsAction
 from game.game_over import GameOver
 from game.game_over_action import GameOverAction
+from game.score import Score
 
 # TODO: Add imports similar to the following when you create these classes
 
@@ -46,6 +47,7 @@ def main():
     # cast["balls"] = []
     # TODO: Create a ball here and add it to the list
     projectiles = []
+      
     
     
     cast['projectiles'] = projectiles
@@ -57,21 +59,25 @@ def main():
     ship.set_height(constants.SHIP_HEIGHT)
     ship.set_width(constants.SHIP_WIDTH)
     ship.set_position(Point(constants.MAX_X/2, constants.MAX_Y/2))
-    ship.set_image(r"C:\Users\flipp\CSE210_Final_Project\CSE210_Final_Project\asteroids\assets\pitrizzo-SpaceShip-gpl3-opengameart-24x24.png")
+    ship.set_image(r"asteroids\assets\pitrizzo-SpaceShip-gpl3-opengameart-24x24.png")
     ships.append(ship)
     
 
     cast["ship"] = ships
 
-    # messages = []
-    # message = GameOver()
-    # message.set_height(200)
-    # message.set_width(200)
-    # message.set_text('Game Over! Better Luck Next Time!')
-    # message.set_position(Point(300, 400))
-    # messages.append(message)
+    
     
     cast["messages"] = ""
+
+    scores = []
+    score = Score()
+    score.set_height(50)
+    score.set_width(50)
+    score.set_position(Point(10, 10))
+    score.set_text('0' )
+    scores.append(score)
+
+    cast['score'] = scores
 
 
     # Create the script {key: tag, value: list}
@@ -87,7 +93,7 @@ def main():
     handle_off_screen_action = HandleOffScreenAction()
     control_actors_action = ControlActorsAction(input_service)
     handle_collisions_action = HandleCollisionsAction(physics_service)
-    game_over_action = GameOverAction(output_service)
+    game_over_action = GameOverAction(output_service, physics_service, script)
     # TODO: Create additional actions here and add them to the script
 
     script["input"] = []

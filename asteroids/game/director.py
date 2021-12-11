@@ -37,16 +37,45 @@ class Director:
             self._cue_action("input")
             self._cue_action("update")
             self._cue_action("output")
+            score = self._cast['score'][0]
 
             # TODO: Add some logic like the following to handle game over conditions
             if len(self._cast['asteroids']) == 0:
                 self._cue_action("gameover")
+            elif len(self._cast['asteroids']) > 0:
                 
-                
+        
+                if score.get_score() < 25:
+                    if len(self._cast['asteroids']) < 5:
+                        asteroid = Asteroid.create_asteroid()
+                        self._cast['asteroids'].append(asteroid)
+                if score.get_score() > 25 < 50:
+                    if len(self._cast['asteroids']) < 7:
+                        asteroid = Asteroid.create_asteroid()
+                        self._cast['asteroids'].append(asteroid)
+                if score.get_score() > 50 < 75:
+                    if len(self._cast['asteroids']) < 9:
+                        asteroid = Asteroid.create_asteroid()
+                        self._cast['asteroids'].append(asteroid)
+                if score.get_score() > 75 < 100:
+                    if len(self._cast['asteroids']) < 11:
+                        asteroid = Asteroid.create_asteroid()
+                        self._cast['asteroids'].append(asteroid)
+                if score.get_score() > 100 < 125:
+                    if len(self._cast['asteroids']) <13:
+                        asteroid = Asteroid.create_asteroid()
+                        self._cast['asteroids'].append(asteroid)
 
-            elif len(self._cast['asteroids']) < 5 and len(self._cast['asteroids']) < 10:
-                 asteroid = Asteroid.create_asteroid()
-                 self._cast['asteroids'].append(asteroid)
+                if score.get_score() > 125 < 150:
+                    if len(self._cast['asteroids']) < 15:
+                        asteroid = Asteroid.create_asteroid()
+                        self._cast['asteroids'].append(asteroid)
+
+                if score.get_score() > 150 < 175:
+                    if len(self._cast['asteroids']) < 17:
+                        asteroid = Asteroid.create_asteroid()
+                        self._cast['asteroids'].append(asteroid)
+                    
 
             
 
