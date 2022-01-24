@@ -1,7 +1,6 @@
-# Batter
-What's your batting average? Find out with this terminal version of the arcade 
-classic. The goal is simple. Just bat the ball at the blricks until there are 
-none left. If you miss the ball the game is over.
+# Asteroids
+Do you love classic arcade games? Then you'll want to try out my take on Asteroids. This is a take on the classic Asteroids arcade game that I built for a school project. 
+
 
 ## Getting Started
 ---
@@ -12,7 +11,7 @@ python3 -m pip install raylib-py
 After you've installed the required libraries, open a terminal and browse to the 
 project's root folder. Start the program by running the following command.
 ```
-python3 08-batter 
+python3 asteroid
 ```
 You can also run the program from an IDE like Visual Studio Code. Start your IDE 
 and open the project folder. Select the main module inside the hunter folder and 
@@ -23,7 +22,7 @@ click the "run" icon.
 The project files and folders are organized as follows:
 ```
 root                    (project root folder)
-+-- batter              (source code for game)
++-- asteroid             (source code for game)
   +-- game              (specific game classes)
   +-- __init__.py       (python package file)
   +-- __main__.py       (entry point for program)
@@ -37,4 +36,4 @@ root                    (project root folder)
 
 ## Authors
 ---
-* # TODO: Add your names and emails here
+* # Garrett Badger 
